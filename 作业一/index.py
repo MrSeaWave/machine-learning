@@ -52,7 +52,8 @@ for i in range(len(x)):  # 12 * 471
 # 分出自测数据
 import math
 
-# 为什么要乘以 0.8？？？
+# 为什么要乘以 0.8？？？避免overfitting,一般遇到的过拟合应该是0.8(训练集损失)与2.0(验证集损失)这种不在一个量级的损失比
+# https://juejin.im/post/5be5b0d7e51d4543b365da51
 x_train_set = x[: math.floor(len(x) * 0.8), :]
 y_train_set = y[: math.floor(len(y) * 0.8), :]
 x_validation = x[math.floor(len(x) * 0.8):, :]
