@@ -67,6 +67,7 @@ loss_array = np.empty([train_num, iteration_num], dtype=float)
 
 
 def train(x, y, learning_rate, model_id):
+    print('--------' + str(model_id) + "--------")
     dim = 18 * 9 + 1
     w = np.zeros([dim, 1])
     x = np.concatenate((np.ones([int(12 * 471 * 0.8), 1]), x), axis=1).astype(float)
@@ -102,13 +103,13 @@ test_x = np.concatenate((np.ones([240, 1]), test_x), axis=1).astype(float)
 
 # 训练模型
 # 模型增加时，记得增加color的颜色值
-train(x_train_set, y_train_set, 2, 1)
+train(x_train_set, y_train_set, 100, 1)
 train(x_train_set, y_train_set, 0.37, 2)
 train(x_train_set, y_train_set, 0.2, 3)
 train(x_train_set, y_train_set, 0.05, 4)
 
 # 画图
-x_axis = np.linspace(0, 6000, iteration_num)
+x_axis = np.linspace(0, iteration_num, iteration_num)
 plt.figure()
 color = ('red', 'orange', 'blue', 'green')
 for i in range(train_num):
@@ -122,13 +123,6 @@ for i in range(train_num):
     ans_y = np.dot(test_x, w)
     for j in range(240):
         ans_y_array[i][j] = ans_y[j][0]
-
-# 自测
-print(y_validation.shape)
-print(ans_y_array.shape)
-for i in range(train_num):
-    loss_validation = np.sqrt(np.sum(np.power(ans_y_array[i, :] - np.transpose(y_validation), 2)) / 471 / 12)
-    print(str(loss_validation) + ',')
 
 # Save Prediction to CSV File
 # 生成提交文件
