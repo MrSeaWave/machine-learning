@@ -22,11 +22,10 @@ for month in range(12):
         sample[:, day * 24: (day + 1) * 24] = raw_data[18 * (20 * month + day): 18 * (20 * month + day + 1), :]
     month_data[month] = sample
 
-# 为什么会有471的data？？
-
 # Extract Features (2)
 # 每個月會有 480hrs，每 9 小時形成一個 data，每個月會有 471 個 data，故總資料數為 471 * 12 筆，而每筆 data 有 9 * 18 的 features (
 # 一小時 18 個 features * 9 小時)。 對應的 target 則有 471 * 12 個(第 10 個小時的 PM2.5) 训练数据的输入x和答案y
+# 1--9,2--10 --->471
 x = np.empty([12 * 471, 18 * 9], dtype=float)
 y = np.empty([12 * 471, 1], dtype=float)
 for month in range(12):
