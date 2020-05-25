@@ -103,10 +103,10 @@ test_x = np.concatenate((np.ones([240, 1]), test_x), axis=1).astype(float)
 
 # 训练模型
 # 模型增加时，记得增加color的颜色值
-train(x_train_set, y_train_set, 100, 1)
-train(x_train_set, y_train_set, 0.37, 2)
-train(x_train_set, y_train_set, 0.2, 3)
-train(x_train_set, y_train_set, 0.05, 4)
+train(x_train_set, y_train_set, 1.5, 1)
+train(x_train_set, y_train_set, 2, 2)
+train(x_train_set, y_train_set, 2.5, 3)
+train(x_train_set, y_train_set, 1.255, 4)
 
 # 画图
 x_axis = np.linspace(0, iteration_num, iteration_num)
@@ -140,3 +140,5 @@ with open('submit.csv', mode='w', newline='') as submit_file:
         row = ['id_' + str(i), ans_y_array[num][i]]
         csv_writer.writerow(row)
         print(row)
+
+# kaggle 5.65515
