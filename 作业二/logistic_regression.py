@@ -143,7 +143,7 @@ b = np.zeros((1,))
 # Some parameters for training
 max_iter = 10
 batch_size = 8
-learning_rate = 0.2
+learning_rate = 0.1
 
 # Keep the loss and accuracy at every iteration for plotting
 train_loss = []
@@ -152,7 +152,7 @@ train_acc = []
 dev_acc = []
 
 # Calcuate the number of parameter updates
-step = 1
+step = 0.1
 
 # Iterative training
 for epoch in range(max_iter):
@@ -169,7 +169,7 @@ for epoch in range(max_iter):
 
         # gradient descent update
         # learning rate decay with time
-        w = w - learning_rate / np.sqrt(step) * w_grad
+        w = w - learning_rate / np.sqrt(step) * (w_grad+w*0.0001)
         b = b - learning_rate / np.sqrt(step) * b_grad
 
         step = step + 1
