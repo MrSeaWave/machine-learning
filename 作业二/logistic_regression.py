@@ -152,7 +152,7 @@ train_acc = []
 dev_acc = []
 
 # Calcuate the number of parameter updates
-step = 0.1
+step = 1
 
 # Iterative training
 for epoch in range(max_iter):
