@@ -169,8 +169,8 @@ for epoch in range(max_iter):
 
         # gradient descent update
         # learning rate decay with time
-        w = w - learning_rate / np.sqrt(step) * (w_grad+w*0.0001)
-        b = b - learning_rate / np.sqrt(step) * (b_grad+b*0.00015)
+        w = w - learning_rate / np.sqrt(step) * (w_grad+w*0.00035)
+        b = b - learning_rate / np.sqrt(step) * b_grad
 
         step = step + 1
 
